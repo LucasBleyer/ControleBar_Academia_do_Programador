@@ -1,6 +1,7 @@
 ﻿using ControleBar.ConsoleApp.Compartilhado;
 using System.Collections.Generic;
 using System;
+using ControleBar.ConsoleApp.ModuloProduto;
 
 namespace ControleBar.ConsoleApp.ModuloPedido
 {
@@ -86,8 +87,8 @@ namespace ControleBar.ConsoleApp.ModuloPedido
                 return false;
             }
 
-            foreach (Pedido garcom in pedidos)
-                Console.WriteLine(garcom.ToString());
+            foreach (Pedido pedido in pedidos)
+                Console.WriteLine(pedido.ToString());
 
             Console.ReadLine();
 
@@ -98,7 +99,7 @@ namespace ControleBar.ConsoleApp.ModuloPedido
         {
             Console.Write("Digite o número do pedido: ");
             int numero = Convert.ToInt32(Console.ReadLine());
-
+                
             return new Pedido(numero);
         }
 

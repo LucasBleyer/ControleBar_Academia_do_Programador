@@ -1,5 +1,6 @@
 ﻿using ControleBar.ConsoleApp.Compartilhado;
 using ControleBar.ConsoleApp.ModuloProduto;
+using System.Collections.Generic;
 
 namespace ControleBar.ConsoleApp.ModuloPedido
 {
@@ -8,7 +9,7 @@ namespace ControleBar.ConsoleApp.ModuloPedido
         public int Numero { get; set; }
 
         public int numero;
-        public Produto produto;
+        public List<Produto> produtos;
 
         public Pedido(int numero)
         {
@@ -16,7 +17,7 @@ namespace ControleBar.ConsoleApp.ModuloPedido
         }
         public override string ToString()
         {
-            return "Id: " + id + "\nNúmero: " + numero +"\nProduto(s)" +produto;
+            return "Id: " + id + "\nNúmero: " + numero +"\nProduto(s)" +produtos;
         }
     }
 }
