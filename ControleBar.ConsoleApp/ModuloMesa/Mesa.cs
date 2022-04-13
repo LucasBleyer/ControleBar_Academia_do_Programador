@@ -10,5 +10,10 @@ namespace ControleBar.ConsoleApp.ModuloMesa
         {
             this.numero = numero;
         }
+
+        public override string ToString()
+        {
+            return "Id: " + id +"\n\tNúmero da mesa: " + numero;
+        }
     }
 }

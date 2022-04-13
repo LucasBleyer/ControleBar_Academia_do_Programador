@@ -109,7 +109,7 @@ namespace ControleBar.ConsoleApp.ModuloMesa
 
             do
             {
-                Console.Write("Digite o numero da mesa que deseja selecionar: ");
+                Console.Write("Digite o ID da mesa que deseja selecionar: ");
                 numeroRegistro = Convert.ToInt32(Console.ReadLine());
 
                 numeroRegistroEncontrado = _repositorioMesa.ExisteRegistro(numeroRegistro);
