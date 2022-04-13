@@ -10,7 +10,7 @@ namespace ControleBar.ConsoleApp.ModuloConta
 
         public Conta(string codigo)
         {
-            codigo = _codigo;
+            _codigo = codigo;
         }
         public override string ToString()
         {

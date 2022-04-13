@@ -6,44 +6,44 @@ namespace ControleBar.ConsoleApp.ModuloConta
 {
     internal class TelaCadastroConta : TelaBase, ITelaCadastravel
     {
-        private readonly IRepositorio<Pedido> _repositorioPedido;
+        private readonly IRepositorio<Conta> _repositorioConta;
         private readonly Notificador _notificador;
 
-        public TelaCadastroPedido(IRepositorio<Pedido> repositorioPedido, Notificador notificador)
-            : base("Cadastro de Pedidos")
+        public TelaCadastroConta(IRepositorio<Conta> repositorioPedido, Notificador notificador)
+            : base("Cadastro de Contas")
         {
-            _repositorioPedido = repositorioPedido;
+            _repositorioConta = repositorioPedido;
             _notificador = notificador;
         }
 
         public void Inserir()
         {
-            MostrarTitulo("Cadastro de Pedidos");
+            MostrarTitulo("Cadastro de Contas");
 
-            Pedido novoPedido = obterPedido();
+            Conta novoPedido = obterPedido();
 
-            _repositorioPedido.Inserir(novoPedido);
+            _repositorioConta.Inserir(novoPedido);
 
-            _notificador.ApresentarMensagem("Pedido cadastrado com sucesso!", TipoMensagem.Sucesso);
+            _notificador.ApresentarMensagem("Conta cadastrada com sucesso!", TipoMensagem.Sucesso);
         }
 
         public void Editar()
         {
-            MostrarTitulo("Editando Pedido");
+            MostrarTitulo("Editando Conta");
 
             bool temRegistrosCadastrados = VisualizarRegistros("Pesquisando");
 
             if (temRegistrosCadastrados == false)
             {
-                _notificador.ApresentarMensagem("Nenhum pediddo cadastrado para editar.", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhuma conta cadastrado para editar.", TipoMensagem.Atencao);
                 return;
             }
 
             int numeroGenero = ObterNumeroRegistro();
 
-            Pedido pedidoAtualizado = obterPedido();
+            Conta pedidoAtualizado = obterPedido();
 
-            bool conseguiuEditar = _repositorioPedido.Editar(numeroGenero, pedidoAtualizado);
+            bool conseguiuEditar = _repositorioConta.Editar(numeroGenero, pedidoAtualizado);
 
             if (!conseguiuEditar)
                 _notificador.ApresentarMensagem("Não foi possível editar.", TipoMensagem.Erro);
@@ -53,53 +53,53 @@ namespace ControleBar.ConsoleApp.ModuloConta
 
         public void Excluir()
         {
-            MostrarTitulo("Excluindo Pedido");
+            MostrarTitulo("Excluindo Conta");
 
-            bool temPedidosRegistrados = VisualizarRegistros("Pesquisando");
+            bool temContasRegistradas = VisualizarRegistros("Pesquisando");
 
-            if (temPedidosRegistrados == false)
+            if (temContasRegistradas == false)
             {
-                _notificador.ApresentarMensagem("Nenhum pedido cadastrado para excluir.", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhuma conta cadastrado para excluir.", TipoMensagem.Atencao);
                 return;
             }
 
-            int numeroGarcom = ObterNumeroRegistro();
+            int numeroConta = ObterNumeroRegistro();
 
-            bool conseguiuExcluir = _repositorioPedido.Excluir(numeroGarcom);
+            bool conseguiuExcluir = _repositorioConta.Excluir(numeroConta);
 
             if (!conseguiuExcluir)
                 _notificador.ApresentarMensagem("Não foi possível excluir.", TipoMensagem.Erro);
             else
-                _notificador.ApresentarMensagem("Pedido excluído com sucesso!", TipoMensagem.Sucesso);
+                _notificador.ApresentarMensagem("Conta excluída com sucesso!", TipoMensagem.Sucesso);
         }
 
         public bool VisualizarRegistros(string tipoVisualizacao)
         {
             if (tipoVisualizacao == "Tela")
-                MostrarTitulo("Visualização de Pedidos Cadastrados");
+                MostrarTitulo("Visualização de Contas Cadastradas");
 
-            List<Pedido> pedidos = _repositorioPedido.SelecionarTodos();
+            List<Conta> contas = _repositorioConta.SelecionarTodos();
 
-            if (pedidos.Count == 0)
+            if (contas.Count == 0)
             {
-                _notificador.ApresentarMensagem("Nenhum pedido disponível.", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhuma conta disponível.", TipoMensagem.Atencao);
                 return false;
             }
 
-            foreach (Pedido pedido in pedidos)
-                Console.WriteLine(pedido.ToString());
+            foreach (Conta conta in contas)
+                Console.WriteLine(conta.ToString());
 
             Console.ReadLine();
 
             return true;
         }
 
-        private Pedido obterPedido()
+        private Conta obterPedido()
         {
-            Console.Write("Digite o número do pedido: ");
-            int numero = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Digite o código da conta: ");
+            string codigo = Console.ReadLine();
 
-            return new Pedido(numero);
+            return new Conta(codigo);
         }
 
         public int ObterNumeroRegistro()
@@ -109,13 +109,13 @@ namespace ControleBar.ConsoleApp.ModuloConta
 
             do
             {
-                Console.Write("Digite o ID do pedido que deseja selecionar: ");
+                Console.Write("Digite o ID da conta que deseja selecionar: ");
                 numeroRegistro = Convert.ToInt32(Console.ReadLine());
 
-                numeroRegistroEncontrado = _repositorioPedido.ExisteRegistro(numeroRegistro);
+                numeroRegistroEncontrado = _repositorioConta.ExisteRegistro(numeroRegistro);
 
                 if (numeroRegistroEncontrado == false)
-                    _notificador.ApresentarMensagem("ID do pedido não foi encontrado, digite novamente", TipoMensagem.Atencao);
+                    _notificador.ApresentarMensagem("ID da conta não foi encontrada, digite novamente", TipoMensagem.Atencao);
 
             } while (numeroRegistroEncontrado == false);
 

@@ -36,7 +36,7 @@ namespace ControleBar.ConsoleApp.ModuloPedido
 
             if (temRegistrosCadastrados == false)
             {
-                _notificador.ApresentarMensagem("Nenhum pediddo cadastrado para editar.", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhum pedido cadastrado para editar.", TipoMensagem.Atencao);
                 return;
             }
 

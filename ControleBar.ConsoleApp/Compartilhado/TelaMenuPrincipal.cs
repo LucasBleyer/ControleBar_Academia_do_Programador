@@ -1,4 +1,5 @@
-﻿using ControleBar.ConsoleApp.ModuloPedido;
+﻿using ControleBar.ConsoleApp.ModuloConta;
+using ControleBar.ConsoleApp.ModuloPedido;
 using ControleBar.ConsoleApp.ModuloProduto;
 using ControleBar.ConsoleApp.ModuloMesa;
 using ControleBar.ConsoleApp.ModuloGarcom;
@@ -19,6 +20,9 @@ namespace ControleBar.ConsoleApp.Compartilhado
 
         private readonly IRepositorio<Pedido> repositorioPedido;
         private readonly TelaCadastroPedido telaCadastoPedido;
+
+        private readonly IRepositorio<Conta> repositorioConta;
+        private readonly TelaCadastroConta telaCadastroConta;
         
         public TelaMenuPrincipal(Notificador notificador)
         {
@@ -33,6 +37,9 @@ namespace ControleBar.ConsoleApp.Compartilhado
 
             repositorioPedido = new RepositorioPedido();
             telaCadastoPedido = new TelaCadastroPedido(repositorioPedido, notificador);
+
+            repositorioConta = new RepositorioConta();
+            telaCadastroConta = new TelaCadastroConta(repositorioConta, notificador);
 
             //PopularAplicacao();
         }
@@ -52,6 +59,8 @@ namespace ControleBar.ConsoleApp.Compartilhado
             Console.WriteLine("[3] Gerenciar Pedidos");
 
             Console.WriteLine("[4] Gerenciar Produtos");
+
+            Console.WriteLine("[5] Gerenciar Contas");
 
             Console.WriteLine("[s] para sair");
 
@@ -79,7 +88,7 @@ namespace ControleBar.ConsoleApp.Compartilhado
                 tela = telaCadastoProduto;
 
             else if (opcao == "5")
-                tela = null;
+                tela = telaCadastroConta;
 
             return tela;
         }
