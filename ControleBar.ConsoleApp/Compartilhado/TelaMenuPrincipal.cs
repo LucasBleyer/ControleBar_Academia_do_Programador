@@ -1,4 +1,5 @@
-﻿using ControleBar.ConsoleApp.ModuloGarcom;
+﻿using ControleBar.ConsoleApp.ModuloMesa;
+using ControleBar.ConsoleApp.ModuloGarcom;
 using System;
 
 namespace ControleBar.ConsoleApp.Compartilhado
@@ -7,11 +8,17 @@ namespace ControleBar.ConsoleApp.Compartilhado
     {
         private readonly IRepositorio<Garcom> repositorioGarcom;
         private readonly TelaCadastroGarcom telaCadastroGarcom;
+
+        private readonly IRepositorio<Mesa> repositorioMesa;
+        private readonly TelaCadastroMesa telaMesa;
         
         public TelaMenuPrincipal(Notificador notificador)
         {
             repositorioGarcom = new RepositorioGarcom();
             telaCadastroGarcom = new TelaCadastroGarcom(repositorioGarcom, notificador);
+
+            repositorioMesa = new RepositorioMesa();
+            TelaCadastroMesa = new TelaCadastroMesa(repositorioMesa, notificador);
 
             PopularAplicacao();
         }

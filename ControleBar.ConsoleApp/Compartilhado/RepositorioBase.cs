@@ -55,7 +55,6 @@ namespace ControleBar.ConsoleApp.Compartilhado
                     return true;
                 }
             }
-
             return false;
         }
 
