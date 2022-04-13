@@ -15,7 +15,7 @@ namespace ControleBar.ConsoleApp.ModuloProduto
 
         public override string ToString()
         {
-            return "Nome: "+nome;
+            return "Id: " + id + "\n\tNome: "+nome;
         }
     }
 }

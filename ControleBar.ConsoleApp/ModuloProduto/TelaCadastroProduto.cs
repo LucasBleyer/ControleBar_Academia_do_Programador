@@ -58,9 +58,9 @@ namespace ControleBar.ConsoleApp.ModuloProduto
         {
             MostrarTitulo("Excluindo Produtos");
 
-            bool temFuncionariosRegistrados = VisualizarRegistros("Pesquisando");
+            bool temPedidosRegistrados = VisualizarRegistros("Pesquisando");
 
-            if (temFuncionariosRegistrados == false)
+            if (temPedidosRegistrados == false)
             {
                 _notificador.ApresentarMensagem("Nenhum produto cadastrado para excluir.", TipoMensagem.Atencao);
                 return;
