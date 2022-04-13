@@ -20,7 +20,7 @@ namespace ControleBar.ConsoleApp.Compartilhado
             repositorioMesa = new RepositorioMesa();
             telaCadastroMesa = new TelaCadastroMesa(repositorioMesa, notificador);
 
-            PopularAplicacao();
+            //PopularAplicacao();
         }
 
         public string MostrarOpcoes()

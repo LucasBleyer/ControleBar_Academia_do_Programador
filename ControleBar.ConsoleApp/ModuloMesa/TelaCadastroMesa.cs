@@ -12,8 +12,8 @@ namespace ControleBar.ConsoleApp.ModuloMesa
         public TelaCadastroMesa(IRepositorio<Mesa> repositorioMesa, Notificador notificador)
             : base("Cadastro de Mesas")
         {
-            this._repositorioMesa = repositorioMesa;
-            this._notificador = notificador;
+            _repositorioMesa = repositorioMesa;
+            _notificador = notificador;
         }
 
         public void Inserir()
@@ -109,7 +109,7 @@ namespace ControleBar.ConsoleApp.ModuloMesa
 
             do
             {
-                Console.Write("Digite o ID da mesa que deseja selecionar: ");
+                Console.Write("Digite o numero da mesa que deseja selecionar: ");
                 numeroRegistro = Convert.ToInt32(Console.ReadLine());
 
                 numeroRegistroEncontrado = _repositorioMesa.ExisteRegistro(numeroRegistro);
