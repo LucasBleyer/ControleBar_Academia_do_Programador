@@ -1,6 +1,6 @@
 ﻿using ControleBar.ConsoleApp.Compartilhado;
-using System;
 using System.Collections.Generic;
+using System;
 
 namespace ControleBar.ConsoleApp.ModuloMesa
 {

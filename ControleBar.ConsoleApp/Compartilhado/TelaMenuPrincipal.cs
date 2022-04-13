@@ -10,7 +10,7 @@ namespace ControleBar.ConsoleApp.Compartilhado
         private readonly TelaCadastroGarcom telaCadastroGarcom;
 
         private readonly IRepositorio<Mesa> repositorioMesa;
-        private readonly TelaCadastroMesa telaMesa;
+        private readonly TelaCadastroMesa telaCadastroMesa;
         
         public TelaMenuPrincipal(Notificador notificador)
         {
@@ -18,7 +18,7 @@ namespace ControleBar.ConsoleApp.Compartilhado
             telaCadastroGarcom = new TelaCadastroGarcom(repositorioGarcom, notificador);
 
             repositorioMesa = new RepositorioMesa();
-            TelaCadastroMesa = new TelaCadastroMesa(repositorioMesa, notificador);
+            telaCadastroMesa = new TelaCadastroMesa(repositorioMesa, notificador);
 
             PopularAplicacao();
         }
@@ -27,13 +27,15 @@ namespace ControleBar.ConsoleApp.Compartilhado
         {
             Console.Clear();
 
-            Console.WriteLine("Controle de Mesas de Bar 1.0");
+            Console.WriteLine("Controle de Mesas de Bar 2.0");
 
             Console.WriteLine();
 
-            Console.WriteLine("Digite 1 para Gerenciar Garçons");
+            Console.WriteLine("[1] Gerenciar Garçons");
 
-            Console.WriteLine("Digite s para sair");
+            Console.WriteLine("[2] Gerenciar Mesas");
+
+            Console.WriteLine("[s] para sair");
 
             string opcaoSelecionada = Console.ReadLine();
 
@@ -50,7 +52,7 @@ namespace ControleBar.ConsoleApp.Compartilhado
                 tela = telaCadastroGarcom;
 
             else if (opcao == "2")
-                tela = null;
+                tela = telaCadastroMesa;
 
             else if (opcao == "3")
                 tela = null;
@@ -64,10 +66,10 @@ namespace ControleBar.ConsoleApp.Compartilhado
             return tela;
         }
 
-        private void PopularAplicacao()
-        {
-            var garcom = new Garcom("Julinho", "230.232.519-98");
-            repositorioGarcom.Inserir(garcom);
-        }
+        //private void PopularAplicacao()
+        //{
+        //    var garcom = new Garcom("Julinho", "230.232.519-98");
+        //    repositorioGarcom.Inserir(garcom);
+        //}
     }
 }
