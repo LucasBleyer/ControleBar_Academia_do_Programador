@@ -16,7 +16,7 @@ namespace ControleBar.ConsoleApp.ModuloPedido
         }
         public override string ToString()
         {
-            return "Id: " + id + "\n\tNúmero: " + numero +"\nProduto(s)" +produto;
+            return "Id: " + id + "\nNúmero: " + numero +"\nProduto(s)" +produto;
         }
     }
 }

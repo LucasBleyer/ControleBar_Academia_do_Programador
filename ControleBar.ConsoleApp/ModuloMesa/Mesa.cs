@@ -13,7 +13,7 @@ namespace ControleBar.ConsoleApp.ModuloMesa
 
         public override string ToString()
         {
-            return "Id: " + id +"\n\tNúmero da mesa: " + numero;
+            return "Id: " + id +"\nNúmero da mesa: " + numero;
         }
     }
 }
