@@ -99,8 +99,15 @@ namespace ControleBar.ConsoleApp.ModuloPedido
         {
             Console.Write("Digite o número do pedido: ");
             int numero = Convert.ToInt32(Console.ReadLine());
-                
-            return new Pedido(numero);
+
+            List<Produto> produtos = new List<Produto>();
+            foreach (Produto produto in produtos)
+            {
+                Console.WriteLine("O que o cliente deseja? ");
+                produtos.Add(produto);
+            }
+
+            return new Pedido(numero, produtos);
         }
 
         public int ObterNumeroRegistro()

@@ -10,9 +10,10 @@ namespace ControleBar.ConsoleApp.ModuloPedido
 
         public List<Produto> produtos;
 
-        public Pedido(int numero)
+        public Pedido(int numero, List<Produto> produto)
         {
             this.Numero = numero;
+            produtos = new List<Produto>();
         }
         public override string ToString()
         {
