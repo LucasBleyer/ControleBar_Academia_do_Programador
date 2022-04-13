@@ -6,11 +6,9 @@ namespace ControleBar.ConsoleApp.ModuloConta
     {
         public string Codigo { get; set; }
 
-        private string _codigo;
-
         public Conta(string codigo)
         {
-            _codigo = codigo;
+            Codigo = codigo;
         }
         public bool estaAberta;
         public void Abrir()
@@ -32,7 +30,7 @@ namespace ControleBar.ConsoleApp.ModuloConta
 
         public override string ToString()
         {
-            return "Id: " + id + "\nCódigo da conta: " + _codigo;
+            return "Id: " + id + "\nCódigo da conta: " + Codigo;
         }
 
     }

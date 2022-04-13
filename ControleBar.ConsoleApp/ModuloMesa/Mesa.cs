@@ -4,16 +4,16 @@ namespace ControleBar.ConsoleApp.ModuloMesa
 {
     internal class Mesa : EntidadeBase
     {
-        public int numero;
+        public int Numero { get; set; }
 
         public Mesa(int numero)
         {
-            this.numero = numero;
+            Numero = numero;
         }
 
         public override string ToString()
         {
-            return "Id: " + id +"\nNúmero da mesa: " + numero;
+            return "Id: " + id +"\nNúmero da mesa: " + Numero;
         }
     }
 }

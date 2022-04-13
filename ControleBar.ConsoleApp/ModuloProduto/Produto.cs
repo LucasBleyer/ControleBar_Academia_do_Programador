@@ -6,16 +6,14 @@ namespace ControleBar.ConsoleApp.ModuloProduto
     {
         public string Nome { get; set; }
 
-        public string nome;
-
         public Produto(string nome)
         {
-            this.nome = nome;
+            Nome = nome;
         }
 
         public override string ToString()
         {
-            return "Id: " + id + "\nNome: "+nome;
+            return "Id: " + id + "\nNome: "+Nome;
         }
     }
 }

@@ -8,16 +8,15 @@ namespace ControleBar.ConsoleApp.ModuloPedido
     {
         public int Numero { get; set; }
 
-        public int numero;
         public List<Produto> produtos;
 
         public Pedido(int numero)
         {
-            this.numero = numero;
+            this.Numero = numero;
         }
         public override string ToString()
         {
-            return "Id: " + id + "\nNúmero: " + numero +"\nProduto(s)" +produtos;
+            return "Id: " + id + "\nNúmero: " + Numero +"\nProduto(s)" +produtos;
         }
     }
 }
