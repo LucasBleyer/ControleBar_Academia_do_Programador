@@ -1,9 +1,4 @@
 ﻿using ControleBar.ConsoleApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleBar.ConsoleApp.ModuloProduto
 {
@@ -16,6 +11,11 @@ namespace ControleBar.ConsoleApp.ModuloProduto
         public Produto(string nome)
         {
             this.nome = nome;
+        }
+
+        public override string ToString()
+        {
+            return "Nome: "+nome;
         }
     }
 }
