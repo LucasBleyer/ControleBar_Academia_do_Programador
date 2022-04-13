@@ -12,6 +12,24 @@ namespace ControleBar.ConsoleApp.ModuloConta
         {
             _codigo = codigo;
         }
+        public bool estaAberta;
+        public void Abrir()
+        {
+            if (!estaAberta)
+            {
+                estaAberta = true;
+            }
+            else
+            {
+                Fechar();
+            }
+        }
+
+        public void Fechar()
+        {
+            estaAberta = false;
+        }
+
         public override string ToString()
         {
             return "Id: " + id + "\nCódigo da conta: " + _codigo;
